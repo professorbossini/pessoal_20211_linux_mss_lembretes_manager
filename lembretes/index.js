@@ -1,9 +1,7 @@
 const express = require ('express');
-const bodyParser = require('body-parser');
 const axios = require ('axios');
-
 const app = express();
-app.use(bodyParser.json());
+app.use(express.json())
 
 const lembretes = {};
 contador = 0;
@@ -28,7 +26,7 @@ app.put ('/lembretes', async (req, res) => {
 });
 
 app.post('/eventos', (req, res) => {
-  console.log(req.body);
+  //console.log(req.body);
   res.status(200).send({msg: 'ok'});
 });
 
