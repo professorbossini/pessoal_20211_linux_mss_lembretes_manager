@@ -11,13 +11,13 @@ app.post ('/eventos', (req, res) => {
   //console.log(evento);
   eventos.push(evento);
   //envia o evento para o microsserviço de lembretes
-  axios.post('http://localhost:4000/eventos', evento);
+  axios.post('http://192.168.1.161:4000/eventos', evento);
   //envia o evento para o microsserviço de observações
-  axios.post('http://localhost:5000/eventos', evento);
+  axios.post('http://192.168.1.161:5000/eventos', evento);
   //envia o evento para o microsserviço de consulta
-  axios.post('http://localhost:6000/eventos', evento);
+  axios.post('http://192.168.1.161:6000/eventos', evento);
   //envia o evento para o microsserviço de Classificação
-  axios.post('http://localhost:7000/eventos', evento);
+  axios.post('http://192.168.1.161:7000/eventos', evento);
   res.status(200).send({msg: 'ok'});
 });
 

@@ -12,7 +12,7 @@ const funcoes = {
     const observacoes = observacoesPorLembreteId[observacao.lembreteId];
     const obsParaAtualizar = observacoes.find((o) => o.id === observacao.id);
     obsParaAtualizar.status = observacao.status;
-    axios.post('http://localhost:10000/eventos', {
+    axios.post('http://192.168.1.161:10000/eventos', {
       tipo: "ObservacaoAtualizada",
       dados: {
         id: observacao.id,
@@ -26,14 +26,14 @@ const funcoes = {
 
 
 
-//localhost:5000/lembretes/abc/observacoes
+//192.168.1.161:5000/lembretes/abc/observacoes
 app.put ('/lembretes/:id/observacoes', async (req, res) => {
   const idObs = uuidv4();
   const { texto } = req.body;
   const observacoesDoLembrete = observacoesPorLembreteId[req.params.id] || [];
   observacoesDoLembrete.push({id: idObs, texto, status: 'aguardando'});
   observacoesPorLembreteId[req.params.id] = observacoesDoLembrete;
-  await axios.post('http://localhost:10000/eventos', {
+  await axios.post('http://192.168.1.161:10000/eventos', {
     tipo: "ObservacaoCriada",
     dados: {
       id: idObs, texto, lembreteId: req.params.id, status: 'aguardando'
