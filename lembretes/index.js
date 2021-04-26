@@ -32,5 +32,7 @@ app.post('/eventos', (req, res) => {
 
 
 app.listen(4000, () => {
+  console.log ("From Docker Hub:V4 for rolling out. Yet another");
+  console.log("Nova versão")
   console.log("Microsserviço de lembretes executando na porta 4000.")
 });
